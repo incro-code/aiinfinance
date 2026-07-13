@@ -1,0 +1,8 @@
+---
+// The landing page is a self-contained, machine-bundled HTML document
+// (all assets inlined). We import it verbatim and emit it untouched so Astro
+// never parses its markup/scripts — the build just needs to pass and output
+// the page as-is under the /aiinfinance base path.
+import raw from "../index.html?raw";
+---
+<Fragment set:html={raw} />
