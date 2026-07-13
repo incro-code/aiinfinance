@@ -4,6 +4,17 @@ To repo to działający landing dostępny pod **incro.io/aiinfinance** oraz **sz
 
 Jak to działa: cały landing to jeden samodzielny plik `src/index.html`. Reszta repo to minimalna otoczka (Astro + Cloudflare), która serwuje go przez Webflow Cloud. **Otoczki nie trzeba rozumieć ani ruszać.**
 
+## Landing zrobiony gdzie indziej (AI, inne narzędzie, agencja)
+
+Zawsze zaczynaj od skopiowania tego repo — nie „przerabiaj" cudzego projektu na Webflow Cloud. Repo to opakowanie, Twój landing to wsad. Liczy się tylko forma, w jakiej go masz:
+
+- **Jeden samodzielny plik HTML** (wszystko — style, skrypty, obrazki — w środku): idealnie. Wrzucasz go jako `src/index.html` (krok 2 poniżej) i gotowe. **Przy eksporcie z narzędzi AI wybieraj opcję „single file" / „standalone HTML"** — to załatwia sprawę.
+- **Wiele plików** (index.html + foldery assets/css/js): pliki statyczne muszą trafić do `public/`, a wszystkie ścieżki w HTML muszą zostać przepisane na absolutne z prefiksem, np. `assets/img.png` → `/nowy-landing/assets/img.png`. Ścieżki względne **nie zadziałają** (strona wisi pod `/nowy-landing` bez ukośnika, więc przeglądarka szukałaby plików obok landingu, nie w nim). Tę adaptację najprościej zlecić Claude Code:
+
+> Mam landing w folderze `<ŚCIEŻKA>` (index.html + assety). Zaadaptuj go do szablonu z tego repo: index.html jako samodzielna treść do `src/index.html`, pliki statyczne do `public/`, a wszystkie odwołania w HTML przepisz na absolutne ścieżki z prefiksem `/<NAZWA>/`. Potem build i weryfikacja wranglerem jak w README — sprawdź też, że assety zwracają 200.
+
+- **Projekt we frameworku** (React, Next itp.): to już nie jest landing-plik — nie pchaj tego w ten szablon, tylko odezwij się do nas.
+
 ## Nowy landing — krok po kroku
 
 1. **Skopiuj to repo** jako nowe repo w organizacji `incro-code` (np. `nowy-landing`).
