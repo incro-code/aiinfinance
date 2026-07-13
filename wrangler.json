@@ -1,8 +1,12 @@
 {
   "name": "aiinfinance",
   "compatibility_date": "2025-04-15",
+  "compatibility_flags": ["nodejs_compat"],
   "assets": {
-    "directory": "./dist",
-    "html_handling": "drop-trailing-slash"
+    "binding": "ASSETS",
+    "directory": "./dist/client"
+  },
+  "observability": {
+    "enabled": true
   }
 }

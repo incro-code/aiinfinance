@@ -1,13 +1,9 @@
 ---
-// The landing page is a self-contained, machine-bundled HTML document
-// (all assets inlined). We import it verbatim and emit it untouched so Astro
-// never parses its markup/scripts.
-//
-// prerender=true forces this page to be built as a static asset. On Webflow
-// Cloud (Cloudflare adapter) routes are server-rendered on the edge by
-// default, which would bundle this ~1.8MB HTML into the Worker and blow the
-// 10MB Worker limit. Prerendering keeps it a plain static file.
-export const prerender = true;
+// The landing is a self-contained, machine-bundled HTML document (all assets
+// inlined). We import it verbatim and emit it untouched so Astro never parses
+// its markup/scripts. Server-rendered (no prerender) so the Worker answers
+// /aiinfinance directly instead of the static-asset layer, whose forced
+// trailing-slash redirect loops against Webflow's edge.
 import raw from "../index.html?raw";
 ---
 <Fragment set:html={raw} />
